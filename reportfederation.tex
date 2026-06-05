@@ -404,10 +404,10 @@ The development of the prototype (\url{https://nfcs-poc.sites.er.kcl.ac.uk/}) wa
 \subsection{Lessons learned}
 The development evidenced that:
 \begin{enumerate}
-\item There is no consistent federated single sign-on across the A\&H landscape, and this represents the most concrete ask the roadmap can address. 
-\item Standardised metadata is key for federation. 
-Search parameters vary across services. Yet, given the discipline-specific nature of the metadata, a fully federated search across all data services might not always make sense.
-\item Standardising API access configured for direct access from external applications is required. Though sanctioned mechanisms (e.g., known IP ranges, attested clients, or codified request rate-limit norms) for programmatic access can be the means by which research consumers are distinguished from harvesting bots.
+\item Building on available expertise within the data services, single sign-on across the A\&H landscape represents the 
+most concrete requirement the roadmap can address. 
+\item Standardising API access configured for direct access from external applications is required. Standardised metadata is key for federation. APIs and Search parameters vary across services. Yet, given the discipline-specific nature of the metadata, a fully federated search across all data services might not always make sense.
+\item Sanctioned mechanisms (e.g., known IP ranges, attested clients, or codified request rate-limit norms) for programmatic access can be the means by which research consumers are distinguished from harvesting bots.
 \item Identifiers below the dataset level remain inconsistent. Without item-level identifiers minted at source, every application has to solve the same disambiguation problem independently, rather than relying on an identifier that does it once for everyone.
 \item Beyond inspection and harmonisation, operations that add research value to the records include ii)\emph{filtering and transformation, reconciliation}, \emph{linking and entity-resolution}, as well as \emph{inference through AI models}.
 \item Pagination is limited even on most accessible services, which currently limits the potential for bulk extraction at the scale required by data services. 
@@ -566,7 +566,9 @@ You will be asked to respond to the interview questions included in this documen
  
 
 \subsection*{\hspace*{1cm}Data Characteristics and Scale}
-\item What types of data are you hosting  in your  data  DRI service and in what formats?    
+\begin{enumerate}
+
+\item What types of data are you hosting in your  data  DRI service and in what formats?    
 \item What is the volume of data that you are hosting?    
 \subsection*{FAIR Data Practices and Stewardship}
 \item Do you host sensitive data, and can these be accessed within your data service?
