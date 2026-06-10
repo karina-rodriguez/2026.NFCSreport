@@ -68,7 +68,7 @@ This report aims to reflect the collective voice of the Arts \& Humanities (A\&H
  supported by the Infrastructure for Digital Arts and Humanities (iDAH).   
 
 \section{Digital Research Infrastructure Ecosystem in Arts and Humanities}
-The Arts and Humanities DRI landscape reflects both the priorities of UKRI-DRI and those of the communities who have extensive experience curating and managing large-scale data. These communities are heterogeneous, bringing together researchers, practitioners, and digital research technical professionals (dRTPs).
+The Arts and Humanities DRI landscape reflects both the priorities of UKRI-DRI and those of the communities who have extensive experience curating and managing large-scale data. These communities are heterogeneous, bringing together researchers, practitioners, and digital Research Technical Professionals (dRTPs).
 
 One of the most visible components of this infrastructure is the \textbf{data services}, including the AHRC-iDAH-funded data services. iDAH provisions for data services which cater for different disciplines
 and/or types of data, including the Distributed System of Scientific
@@ -210,7 +210,7 @@ Workflows are likely to migrate between physical infrastructures
 \item DRI should provide an intuitive and visual interface to enable data-intensive research 
 (\cite[4]{wrro203045}), 
 including tailored interfaces for editing, analysis, visualisation/streaming and interaction with data, commentary, citation, as well as extraction (\cite{Rodriguez22}; \cite[44]{de_roure_2022_4716148}; \cite[5]{wrro203045}). 
-Accessibility standards should be considered 
+Accessibility standards should be considered from design stage
 (\cite[66]{de_roure_2022_4716148}; \cite[5]{wrro203045}).  
 
 \item DRI should enable support for interactive/urgent computing interfaces (notebook-style), which are familiar to researchers and software developers within these communities of users (\cite[4]{bell_2025_17099176}). 
@@ -234,7 +234,7 @@ Accessibility standards should be considered
 \noindent\textbf{Communities want user journeys and use cases for digital methods as a means to support guided access of DRI.}
 
 \begin{enumerate}[resume]
-\item DRI should adopt taxonomies, such as the TADRIAH taxonomy, to categorise popular tasks and guide researchers. DRI should advise on appropriate computing architectures and frameworks for deployment, based on the established requirements of these systems (e.g., data access, CPU/GPU-intensive).   
+\item DRI should adopt taxonomies, such as the TaDiRAH taxonomy, to categorise popular tasks and guide researchers. DRI should advise on appropriate computing architectures and frameworks for deployment, based on the established requirements of these systems (e.g., data access, CPU/GPU-intensive).   
 
 \item DRI should elicit and showcase usable pathfinder projects and demonstrator/pilot applications for popular tasks to support uptake by the community, learning by other people's workflows and overall experiences (\cite[3,9]{bell_2025_17099176}; \cite[5]{evans23}).
 
@@ -286,7 +286,7 @@ These activities should promote collaboration among various professional roles, 
 \noindent\textbf{Communities benefit from active connection, nurturing, as well as inclusive and sustained growth.}  
 
 \begin{enumerate}[resume]
-\item DRI should develop and sustain inclusive communities of practice beyond disciplinary domains, such as History, Language, Digital Humanities and Archaeology and academic audiences (\cite[10,26]{taylor_2022_10518740,beavan_2025a_15083396}).   
+\item DRI should develop and sustain inclusive communities of practice beyond disciplinary domains, such as History, Language, Digital Humanities and Archaeology and academic audiences (\cite[10,26]{taylor_2022_10518740,beavan_2025a_15083396}) and across across diverse epistemic cultures (\cite{duran_del_fierro_2025_17641455}).   
 
 \item DRI should be supported by networking, approaches for collaborating, skills, formal and informal training, internships, and placements to support people at various career stages and in different organisations 
 (\cite[17,72]{de_roure_2022_4716148}; \cite[2]{bell_2025_17099176}; \cite[20,21]{romanova_2021_5105938}; \cite[34,35]{shoaib_sufi_2023_7686348}; \cite[47]{taylor_2022_10518740};\cite{beavan_2025a_15083396}).   
@@ -365,9 +365,9 @@ While good practices can be found at the data-service level regarding FAIR pract
 
 Building on strong expertise in data curation, the data services employ domain-specific metadata schemas, e.g., the Darwin Core for natural history data, the Monument Inventory Data Standard (MIDAS), and the Spectrum for museum data, and there is a desire to move towards the use of standardised ontologies (requirement~\ref{itm:ont}). DOIs are the standard for datasets across data services, yet some services report a lack of a citation culture.  
 
-Data services encourage the use of open licenses, such as CC-BY and CC0, to facilitate reuse (requirement~\ref{itm:cc0}. Deposit agreements allow data services to distribute data rather than transfer the copyright, ensuring the depositor  retains  ownership. Where an agreement is unavailable, the institution must own the copyright to grant a license, which is not practical in all cases.
+Data services encourage the use of open licenses, such as CC-BY and CC0, to facilitate reuse (requirement~\ref{itm:cc0}). Deposit agreements allow data services to distribute data rather than transfer the copyright, ensuring the depositor  retains  ownership. Where an agreement is unavailable, the institution must own the copyright to grant a license, which is not practical in all cases.
 
-When providing access to data beyond licensing restrictions, the primary sensitivities include legal considerations, such as the Legal Deposit Libraries (Non-Print Works) Regulations 2013, the Data Protection Acts, and the Copyright, Designs and Patents Act 1988 (CDPA). The implication is that access should be confined to controlled environments and used only for permitted purposes as identified in requirements~\ref{itm:ipr} and \ref{itm:gran}. For instance, one of the data services is exploring the use of physical walled-off sections of reading rooms to provide secure access to restricted data, though remote access remains legally difficult. There is wide interest in the potential of Trusted Research Environments (TREs) to enable controlled access to sensitive or copyrighted data. 
+When providing access to data beyond licensing restrictions, the primary sensitivities include legal considerations, such as the Legal Deposit Libraries (Non-Print Works) Regulations 2013, the Data Protection Acts, and the Copyright, Designs and Patents Act 1988 (CDPA). The implication is that access should be confined to controlled environments and used only for permitted purposes as identified in requirements~\ref{itm:ipr} and \ref{itm:gran}. For instance, one of the data services is exploring the use of physical walled-off sections of reading rooms to provide secure access to restricted data, though remote access remains legally difficult. There is wide interest in the potential of Trusted Research Environments (TREs) to enable controlled access to sensitive or copyrighted data (requirement~\ref{itm:sec}). 
   
 There is evidence of versioning approaches (see requirement~\ref{itm:ver}), including support for  versioning  records, linking new versions to old ones and allowing researchers to cite specific iterations of data used in citations. For instance, \emph{living records} or continuous updates are a hallmark of biological data (e.g., re-identifying  a species) in data infrastructure.  Moreover, versioning is considered a core requirement for some of the data services going forward.
 
@@ -379,25 +379,25 @@ However, moving large-scale data to external compute facilities can be a major b
 In addition, most data services allow for programmatic access to metadata via the HTTP-based Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH). Some, such as the ADS and DiSSCo, provide additional REST APIs for access. Often, API rate limits are used. While there is some positive views on enabling data-crawling and batch analysis, the impact on the infrastructure needs to be mitigated. A significant concern is the impact of unregulated AI bots crawling repositories and straining infrastructure. Hence, considerations regarding gorvernance, cybersecurity (requirement~\ref{itm:cyb}) and ensuring local servers cope with demand need to be taken oboard.
 
 Various projects have explored Artificial Intelligence workflows for data mining and metadata enhancement. 
-For instance, computer vision models are used for automated species identification from images, and NLP is used to transcribe millions of handwritten specimen labels. These workflows facilitate linking specimens to collectors, publications, and DNA sequences (requirement~\ref{itm:ai}). While most data servcies are using AI for this type of \emph{back-room} tasks, formal AI policies are required, as these are largely absent or tethered to broader university statements ((requirement~\ref{itm:aigov})). 
+For instance, computer vision models are used for automated species identification from images, and NLP is used to transcribe millions of handwritten specimen labels. These workflows facilitate linking specimens to collectors, publications, and DNA sequences (requirement~\ref{itm:ai}). While most data servcies are using AI for this type of \emph{back-room} tasks, formal AI policies are required, as these are largely absent or tethered to broader university statements (requirement~\ref{itm:aigov}). 
 
 Overall, there is a keen interest in a federated interface between data and compute infrastructures to allow users to move/use data into their own software environments (requirements~\ref{itm:hpc} and \ref{itm:ana}). 
 
-Moreover, there is a strong interest in federated Identity and Authentication Management (IAM) (requirement~\ref{itm:aut}). Currently, only one data service uses a federated Shibboleth model, while other services rely on institutional accounts or IP-based access within an institution. There was strong interest in providing authenticated user functionality, such as API access, cross-search of sensitive metadata, and access to the Virtual Research Environment (VRE).
+Moreover, there is a strong interest in federated Identity and Authentication Management (IAM) (requirement~\ref{itm:aut}). Currently, only one data service uses a federated Shibboleth model, while other services rely on institutional accounts or IP-based access within an institution. There was strong interest in providing authenticated user functionality, such as API access, cross-search of sensitive metadata, and access to Virtual Research Environments (VREs).
 
 \subsection{Challenges, Opportunities and Impact}
 Certifications (e.g., CoreTrustSeal) and long-term sustainability (see requirement~\ref{item:sus}) are considered positive stories, while enabling access, large-scale aggregation, and the reuse of data are often desired impacts.  For data services, ongoing challenges include sustainably maintaining the infrastructure, long-term preservation and protecting against cybersecurity threats (requirement~\ref{itm:sec}).
 
-A universal \emph{pain point} is the difficulty of recruiting and retaining digital research technical professionals (requirement~\ref{itm:hum}). The data services cannot compete with private-sector salaries and they rely on dRTPs within HEIs, where grading systems often pose barriers to hiring dRTPs. 
+A universal \emph{pain point} is the difficulty of recruiting and retaining digital Research Technical Professionals (requirement~\ref{itm:hum}). The data services cannot compete with private-sector salaries and they rely on dRTPs within HEIs, where grading systems often pose barriers to hiring dRTPs. 
 
 \subsection{Federation Aspirations}
-In terms of federation, there is strong support for a suite of UKDRI national services rather than a single, monolithic platform. Priorities for data services include improved search and discoverability, shared AI infrastructure (e.g., public Large Language Model Infrastructure for research), and improved connectivity between compute and data. Distribution of technical infrastructure, such as off-site distributed long-term storage and backups, to improve preservation, disaster and cybersecurity resilience is seen as a potential area of coordination in a federated ecosystem.
+In terms of federation, there is strong support for a suite of UKDRI national services rather than a single, monolithic platform. Priorities for data services include improved search and discoverability, shared AI infrastructure (e.g., public Large Language Model Infrastructure for research), and improved connectivity between compute and data (requirement~\ref{itm:hpc}). Distribution of technical infrastructure, such as off-site distributed long-term storage and backups, to improve preservation, disaster and cybersecurity resilience is seen as a potential area of coordination in a federated ecosystem (requirement~\ref{itm:cyb}).
 In particular, there was a strong note that a level of security and \emph{arms-length} protection could be provided through federation, compared to what an individual institution can achieve on its own. 
 
 
 \section{Requirements for enabling discoverability across data services: Insights from prototype development}
 Further work was conducted to identify the specific requirements for infrastructures and platforms to improve discoverability across a federated data ecosystem. 
-This further work directly addressed the needs identified by research communities and data service providers to improve how research is indexed, visible, and discoverable (requirements~\ref{itm:dis}, \ref{itm:agg}, and \ref{itm:ont}). For this, a proof-of-concept prototype was designed and prototyped, testing various requirements identified during the interviewS, in particular searching across multiple services from a single query and linking discovered data with compute power. To close the loop from discovery to reference, the proof of concept explored the use of a dedicated citation component which can assemble a formatted reference list directly from a federated result set.
+This further work directly addressed the needs identified by research communities and data service providers to improve how research is indexed, visible, and discoverable (requirements~\ref{itm:dis}, \ref{itm:agg}, and \ref{itm:ont}). For this, a proof-of-concept prototype was designed and prototyped, testing various requirements identified during the interviews, in particular searching across multiple services from a single query and linking discovered data with compute power. To close the loop from discovery to reference, the proof of concept explored the use of a dedicated citation component which can assemble a formatted reference list directly from a federated result set.
 
 The development of the prototype was an iterative, attritional process of discovery, building out organically from a small set of core functions. At its simplest, the interface provides the ability to take a single argument — a text string or an integer — that can be passed consistently to a range of providers, satisfying the minimal requirements for a search query (string), a result limit (numeric), and an API key, where required (string). Once those core functions were established, the development effort concentrated on adding research value to that baseline, prioritised by the recurrent themes from our interviews with the data services and by their idiosyncrasies. It further prioritised partly inferred usability concerns drawn from the project team's experience running workshops.
 
@@ -415,7 +415,7 @@ most concrete requirement the roadmap can address.
 
 The requirements, recommendations, and proof-of-concept exercise were disseminated at the UK-Ireland Digital Humanities Association Annual Event 2026. [\emph{feedback to be added}]
 
-This work for the federation roadmap implies that improving discoverability across a federated data ecosystem requires a coordinated effort. A commons-style effort with a shared contract and maintenance burden could support federated access and discovery. It aligns incentives — the party that benefits from being discoverable maintains the means of discovery. A shared, published specification with an agreed-upon, simple description of input, outputs, and the format the data must follow will enable any team — including the data services themselves — to build ways to expose data for their own service without needing to understand the rest of the application. The specification need not be complex; the value lies in its existence and stability.
+This work for the federation roadmap implies that improving discoverability across a federated data ecosystem requires a coordinated effort. A commons-style effort with a shared contract and maintenance burden could support federated access and discovery. It aligns incentives — the party that benefits from being discoverable maintains sovereignty  over the means of discovery. A shared, published specification with an agreed-upon, simple description of input, outputs, and the format the data must follow will enable any team — including the data services themselves — to build ways to expose data for their own service without needing to understand the rest of the application. The specification need not be complex; the value lies in its existence and stability.
 
 \section{Recommendations}
 Our understanding of the DRI landscape in the Arts and Humanities and the following recommendations are informed by the activities described above: literature review, conducting interviews with data services, trailing approaches for visual interfaces, shaping and delivering the DISKAH fellowship programme with A\&H researchers, and engaging in various outreach and dissemination opportunities at national and international levels. 
@@ -487,7 +487,7 @@ compute environments, analysis platforms, and tools can connect to the service d
 & Must have 
 & DRI-data services  \\
 \addlinespace
-\rdat & Coordinate A\&H data services infrastructure through a technically oriented board to ensure consistency of efforts, in particular with regards to metadata integrity, harmonisation of ontologies, taxonomies and vocabularies across domain schemas, API access, Persistent Identifiers (PIDs) amongst others. This includes enhancing search and discoverability, as well as distributed long-term storage and backups, to improve preservation, disaster and cybersecurity resilience.
+\rdat & Coordinate A\&H data services infrastructure through a technically oriented board to ensure consistency of efforts, in particular with regards to metadata integrity, harmonisation of ontologies, taxonomies and vocabularies across domain schemas, API access, Persistent Identifiers (PIDs), provenance pathways and citation generators amongst others. This includes enhancing search and discoverability, as well as distributed long-term storage and backups, to improve research integrity, preservation, disaster and cybersecurity resilience.
 & Must have 
 & DRI-data services  \\
 \addlinespace
@@ -552,7 +552,7 @@ funding to strategically join the relevant European Research Infrastructure Cons
 \endhead
 \bottomrule
 \endfoot 
-\rpol & Develop use and support mechanisms to accommodate non-linear, iterative and flexible modes of working with data and digital methods
+\rpol & Develop use and support mechanisms to accommodate non-linear, iterative and flexible modes of working with data and digital methods.
 & Must have 
 & Governance bodies  \\
 \end{xltabular}
