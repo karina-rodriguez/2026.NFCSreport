@@ -45,7 +45,7 @@
 
 \title{Federated Digital Research Infrastructures (DRI) for the Arts and Humanities Communities}
 \subtitle{\LARGE{Insights into Communities and Digital Research Practices}}
-\date{\normalsize{January 2026}}
+\date{\normalsize{June 2026}}
 \author[1]{Karina Rodriguez Echavarria}
 \author[1]{Myrsini Samaroudi}
 \author[2]{Arianna Ciula}
@@ -65,12 +65,12 @@ This report aims to reflect the collective voice of the Arts \& Humanities (A\&H
  Histories, Cultures and Heritage, 2) Creative and Performing Arts, as well as
  3) Languages and Literature. The research in these areas is
  funded mainly by the UKRI Arts and Humanities Research Council (AHRC) and
- supported by the Infrastructure for Digital Arts and Humanities (iDAH).   
+ supported by the Infrastructure for Digital Arts and Humanities ().   
 
 \section{Digital Research Infrastructure Ecosystem in Arts and Humanities}
 The Arts and Humanities DRI landscape reflects both the priorities of UKRI-DRI and those of the communities who have extensive experience curating and managing large-scale data. These communities are heterogeneous, bringing together researchers, practitioners, and digital Research Technical Professionals (dRTPs).
 
-One of the most visible components of this infrastructure is the \textbf{data services}, including the AHRC-iDAH-funded data services. iDAH provisions for data services which cater for different disciplines
+One of the most visible components of this infrastructure is the \textbf{data services}, including the AHRC-funded data services. IDAH provisions for data services which cater for different disciplines
 and/or types of data, including the Distributed System of Scientific
 Collections (DiSSCo); the Archaeology Data Service (ADS); the Literary and Linguistic Data Service (LLDS); the British Library Research Repository; the Museum Data Service (MDS); the Heritage Science Data Service (HSDS); and the Enact Practice Research Data Service, which is under development.
 
@@ -81,7 +81,7 @@ currently being addressed by the scoping project \emph{Toward a new CCP for Arts
 The use of DRI \textbf{hardware components} and high-performance computing systems within research methods varies across the community. In most cases, researchers use institutional DRI, and the number of researchers with A\&H projects applying for access to DRI Tier 1 and 2 hardware components remains low. Initiatives such as the \href{https://www.diskah.org/}{Digital Skills in Arts and Humanities (DISKAH) Network} aim to broaden access by developing digital skills and promote use cases of DRI amongst A\&H communities.
 
 
-There are also various capacity-building, training frameworks and collaboration networks that support skills development, knowledge exchange, and community advocacy. iDAH engages with the A\&H
+There are also various capacity-building, training frameworks and collaboration networks that support skills development, knowledge exchange, and community advocacy. IDAH engages with the A\&H
 research and practice communities to improve skills and promote the overall culture around data, tools and software, for instance, through the \href{https://www.turing.ac.uk/research/research-projects/dataculture-building-sustainable-communities-around-arts-and-humanities}{DataCulture} project.  
 
 Taking into account all these existing components and with the aim of developing federated access to them, the following sections explain the methodology for proposing an operational roadmap to address the requirements of the A\&H community.
@@ -91,7 +91,7 @@ Taking into account all these existing components and with the aim of developing
 The research conducted to establish the requirements of the A\&H
 communities for federation involved a thorough review of established research and evidence published in relevant literature (\cite{beavan_2025a_15083396,beavan_2025b_15083632,bell_2025_17099176,Black19102024,connected,collier25,de_roure_2022_4716148,evans23,hawkins_2024_14006955,shoaib_sufi_2023_7686348,ross_2024_13710266,romanova_2021_5105938,Rodriguez22,wrro203045,Zwiggelaar22,taylor_2022_10518740,sichani_2023_8177926,McGillivray2020}). 
 
-These reports and publications were selected based on the authors' knowledge of the DRI landscape evolution in Arts and Humanities over the last few years, in parallel with or driven by the development and funding of the iDAH programme, as well as other community initiatives, notably the development of the UK-Ireland Digital Humanities Association. This literature was compiled and analysed thematically, highlighting insights from the A\&H subdisciplines, as well as cross-disciplinary research, in terms of data practices, tools and workflows, collaboration and professional
+These reports and publications were selected based on the authors' knowledge of the DRI landscape evolution in Arts and Humanities over the last few years, in parallel with or driven by the development and funding of the IDAH programme, as well as other community initiatives, notably the development of the UK-Ireland Digital Humanities Association. This literature was compiled and analysed thematically, highlighting insights from the A\&H subdisciplines, as well as cross-disciplinary research, in terms of data practices, tools and workflows, collaboration and professional
 development. 
 % Thereafter, these insights informed a gathering exercise on
 % the requirements of data service providers regarding federation, based on their
@@ -153,8 +153,7 @@ Researchers require guidance on how software should be managed, documented, stor
 \item DRI needs to support the long-term preservation of data and software outputs through national and institutional services (\cite[8]{
 beavan_2025b_15083632}).
 
-\item DRI should offer support at the start of the project regarding standards and guidelines for archiving and preservation that facilitate future data science endeavours, improving accessibility and reducing data wrangling effort; as well as at the end of the project when preparing derived datasets for dissemination 
-(\cite[4,18]{de_roure_2022_4716148}).
+\item DRI should offer support at the start of the project regarding standards and guidelines for archiving and preservation that facilitate future data science endeavours, improving accessibility and reducing data wrangling effort; as well as at the end of the project when preparing documentation and datasets and/or code resulting from the project (\cite[4,18]{de_roure_2022_4716148}).
 
 \item DRI should consider adopting models for digital preservation readiness, such as the NDSA Levels of Digital Preservation or the Digital Preservation Coalition's Rapid Assessment Model (DPC RAM) (\cite[4,21]{Zwiggelaar22}).  
 \end{enumerate}
@@ -264,11 +263,14 @@ The UK Registry for the Research Activity Identifier (RAiD) and DataCite should 
 \noindent\textbf{Communities collaborate across institutional boundaries and with non-academic communities at both national and international levels.}  
 
 \begin{enumerate}
-\item DRI should allow for authorship of research outputs by individuals and teams across institutions (\cite[5]{evans23}). Metadata based on existing taxonomies, such as the Contributor Roles Taxonomy (CRediT), should be considered.  
+\item DRI should allow for authorship of research outputs by individuals and teams across institutions (\cite[5]{evans23}). Metadata based on existing taxonomies
+% , such as the Contributor Roles Taxonomy (CRediT), 
+should be considered.  
 
 \item DRI should support access for teams composed of national and international academic and non-academic users, including functionality such as data transfer/migration, permission management, and usage monitoring. Copyright and licensing of DRI-related resources should support agreements among multiple institutions 
-(\cite{de_roure_2022_4716148}; \cite[5]{Zwiggelaar22}). Collaboration can be enabled via 'short-lived collaborations' and 'virtual organisations' that bring together staff from multiple institutions, often in different countries 
-(\cite[7]{collier25}).
+(\cite{de_roure_2022_4716148}; \cite[5]{Zwiggelaar22}). 
+% Collaboration can be enabled via 'short-lived collaborations' and 'virtual organisations' that bring together staff from multiple institutions, often in different countries 
+% (\cite[7]{collier25}).
 
 \item\label{itm:aut} DRI should consider reusable tools and approaches to share a minimum set of information about a researcher, including authentication protocols and identifiers (e.g. ORCID)
 (\cite[6]{collier25}).
@@ -276,7 +278,7 @@ The UK Registry for the Research Activity Identifier (RAiD) and DataCite should 
 
 \item DRI should encourage cross-disciplinary national and international collaborations through community engagement activities, such as hackathons 
 (\cite[4]{de_roure_2022_4716148}; \cite[2]{bell_2025_17099176}; \cite[15]{romanova_2021_5105938}; \cite{sichani_2023_8177926}). 
-These activities should promote collaboration among various professional roles, including digital Research Technical Professionals, encompassing Research Software Engineers (RSEs), data scientists and other researchers (\cite{step,discourse},\cite[8]{de_roure_2022_4716148},\cite{beavan_2025a_15083396}; \cite[30]{taylor_2022_10518740}), as well as with other sectors such as the creative industries (\cite{romanova_2021_5105938}).  
+These activities should promote collaboration among various professional roles, including Digital Research Technical Professionals (DRTPs), encompassing Research Software Engineers (RSEs), data scientists and other researchers (\cite{step,discourse},\cite[8]{de_roure_2022_4716148},\cite{beavan_2025a_15083396}; \cite[30]{taylor_2022_10518740}), as well as with other sectors such as the creative industries (\cite{romanova_2021_5105938}).  
 \end{enumerate}
 
 
@@ -297,13 +299,13 @@ Environmental awareness for doing digital research should also be considered
 (\cite[28]{sichani_2023_8177926}; \cite[6]{evans23}).  
 \end{enumerate}
 
-\noindent\textbf{Communities consider digital Research Technical Professionals (dRTPs) to be key stakeholders to expand access to DRI.}  
+\noindent\textbf{Communities consider Digital Research Technical Professionals (DRTPs) to be key stakeholders to expand access to DRI.}  
 
 \begin{enumerate}[resume]
-\item DRI should ensure continuous equitable collaboration with dRTPs, including dedicated and one-to-one 'clinic' style support 
+\item DRI should ensure continuous equitable collaboration with DRTPs, including dedicated and one-to-one 'clinic' style support 
 (\cite[48]{de_roure_2022_4716148}; \cite[8]{bell_2025_17099176}; \cite[10]{Black19102024}; \cite[17]{romanova_2021_5105938}; \cite[12]{sichani_2023_8177926}; \cite[33]{taylor_2022_10518740}; \cite[1,2]{hawkins_2024_14006955};\cite{beavan_2025a_15083396}).
 
-\item DRI should leverage community managers to broker access to dRTPs/RSEs and widen engagement with DRI 
+\item DRI should leverage community managers to broker access to DRTPs/RSEs and widen engagement with DRI 
 (\cite[10]{bell_2025_17099176};\cite{beavan_2025a_15083396}).
 
 \item DRI should ensure broader availability of dRTP roles 
@@ -352,8 +354,8 @@ DRI should consider supporting users post-project completion
 (\cite[21]{romanova_2021_5105938}).
 
 \end{enumerate}
-\section{Requirements for Data Federation: Insights from the AHRC-IDAH Data Services}
-A series of interviews with representatives of \emph{six} AHRC-iDAH data services was conducted to examine data service providers' perspectives. The services interviewed were the Distributed System of Scientific Collections (DiSSCo); the Archaeology Data Service (ADS); the Literary and Linguistic Data Service (LLDS); the British Library Research Repository; the Museum Data Service (MDS); the Heritage Science Data Service (HSDS). At the time of the research, the Enact Practice Research Data Service had not yet been materialised; hence, it was not included in the sample. 
+\section{Requirements for Data Federation: Insights from the Data Services}
+A series of interviews with representatives of \emph{six} data services, mostly funded by AHRC, was conducted to examine data service providers' perspectives. The services interviewed were the Distributed System of Scientific Collections (DiSSCo); the Archaeology Data Service (ADS); the Literary and Linguistic Data Service (LLDS); the British Library Research Repository; the Museum Data Service (MDS); the Heritage Science Data Service (HSDS). At the time of the research, the Enact Practice Research Data Service had not yet been materialised; hence, it was not included in the sample. 
 The interviews focused on exploring the nature of the data in each data service, data practices within their associated communities, as well as challenges, opportunities and aspirations for a federated infrastructure environment.  The analysis of the interviews was structured around the main themes which were also employed in the interview sections (see Appendix \ref{interview}), while allowing for subthemes to emerge. The findings from these interviews are presented below.
 
 \subsection{Data types and formats}
@@ -395,36 +397,79 @@ In terms of federation, there is strong support for a suite of UKDRI national se
 In particular, there was a strong note that a level of security and \emph{arms-length} protection could be provided through federation, compared to what an individual institution can achieve on its own. 
 
 
-\section{Requirements for enabling discoverability across data services: Insights from prototype development}
-Further work was conducted to identify the specific requirements for infrastructures and platforms to improve discoverability across a federated data ecosystem. 
-This further work directly addressed the needs identified by research communities and data service providers to improve how research is indexed, visible, and discoverable (requirements~\ref{itm:dis}, \ref{itm:agg}, and \ref{itm:ont}). For this, a proof-of-concept prototype was designed and prototyped, testing various requirements identified during the interviews, in particular searching across multiple services from a single query and linking discovered data with compute power. To close the loop from discovery to reference, the proof of concept explored the use of a dedicated citation component which can assemble a formatted reference list directly from a federated result set.
+\section{Proof of Concept Development: Data Federation}
+% Along with a report on the development, and appropriate assessment of the technology this should include:
+% - Technical configuration details with respect to the target
+% - Outputs, what worked and what didn’t work and why
+% - Next steps i.e. whether to redo the prototype design or development of a minimum viable product and operations 
 
-The development of the prototype was an iterative, attritional process of discovery, building out organically from a small set of core functions. At its simplest, the interface provides the ability to take a single argument — a text string or an integer — that can be passed consistently to a range of providers, satisfying the minimal requirements for a search query (string), a result limit (numeric), and an API key, where required (string). Once those core functions were established, the development effort concentrated on adding research value to that baseline, prioritised by the recurrent themes from our interviews with the data services and by their idiosyncrasies. It further prioritised partly inferred usability concerns drawn from the project team's experience running workshops.
+A proof of concept to improve discoverability across a federated data ecosystem was developed to investigate the suitability of a tool for communities and data service providers to improve how research is indexed, visible, and discoverable (requirements~\ref{itm:dis}, \ref{itm:agg}, and \ref{itm:ont}). For this, a proof-of-concept prototype was prototyped, testing various requirements identified during the interviews, in particular searching across multiple services from a single query and linking discovered data with compute power. Once those core functions were established, the development effort concentrated on adding research value to that baseline, prioritised by the recurrent themes from our interviews with the data services and by their idiosyncrasies. It further prioritised partly inferred usability concerns drawn from the project team's experience running workshops.
 
-\subsection{Lessons learned}
-The development evidenced that:
+\subsection{Technical Configuration}
+The development of the prototype was an iterative, attritional process of discovery, building out organically from a small set of core functions. It deploys a web-based interactive visual interface similar to a workflow manager (see Figure~\ref{fig:poc}). The interfaces provides a set of nodes, including \emph{data} nodes for each data service, including those within the A\&H infrastructure and other national and international repositories.  
+At its simplest, the interface provides the ability to take a single argument — a text string or an integer — via a node interface that can be passed consistently to a range of providers, satisfying the minimal requirements for a search query (string), a result limit (numeric), and an API key, where required (string). Thereafter, various workflows can be developed to perform filter, transform, extraction and enrichment tasks via \emph{data analytic} nodes. IIIF annotation is made available to support discoverability and analysis of visual media. \emph{Visualisation} nodes are made available to generate graphs, maps, and other visualisation modalities. 
+
+The interfaces also offer support via Large Language Models for both developing the workflow and interacting with the data. For this, a pre-configured set of models was made available. To close the loop from discovery to reference, the proof of concept explored the use of a dedicated citation component which can assemble a formatted reference list directly from a federated result set. Workflows can be saved, exported and loaded using a JSON format.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/poc.png}
+    \caption{Visual interfaces of web-based}
+    \label{fig:poc}
+\end{figure}
+
+\subsection{Assessment of the prototype}
+The proof-of-concept was presented at the UK-Ireland Digital Humanities Association Annual Event 2026 in Southampton to an audience of about 25 A\&H researchers. The session included a presentation, a demo and tool testing, and a group activity to collect feedback via Padlet. 
+
+The prototype and its visual nature were very well received: researchers particularly valued its federated, reproducible search and the way it made the linking of infrastructures visible through a simple interface. Researchers also identified areas for development, highlighting the need for support for additional sources such as Wikibase instances, other repositories and triplestores, clarity on the licenses and policies of use, standardised workflow descriptions, and greater transparency into the underlying AI models.
+
+The development evidenced that from a user perspective, the visual and interactive nature of federated platforms and tools is key to adoption. Moreover, from a development perspective, there are various lessons learned which will facilitate the production of a minimum viable product:
 \begin{enumerate}
-\item Building on available expertise within the data services, single sign-on across the A\&H landscape represents the 
-most concrete requirement the roadmap can address. 
+\item Building on available expertise within the data services, single sign-on across the A\&H landscape represents the most concrete requirement the roadmap can address. 
 \item Standardising API access configured for direct access from external applications is required. Standardised metadata is key for federation. APIs and Search parameters vary across services. Yet, given the discipline-specific nature of the metadata, a fully federated search across all data services might not always make sense.
 \item Sanctioned mechanisms (e.g., known IP ranges, attested clients, or codified request rate-limit norms) for programmatic access can be the means by which research consumers are distinguished from harvesting bots.
-\item Identifiers below the dataset level remain inconsistent. Without item-level identifiers minted at source, every application has to solve the same disambiguation problem independently, rather than relying on an identifier that does it once for everyone.
-\item Beyond inspection and harmonisation, operations that add research value to the records include \emph{filtering and transformation, reconciliation}, \emph{linking and entity-resolution}, as well as \emph{inference through AI models}.
+\item Identifiers below the dataset level remain inconsistent. Without item-level identifiers minted at source, every application has to solve the disambiguation problem independently, rather than relying on a single identifier that solves it once for everyone.
+\item Beyond inspection and harmonisation, operations that add research value to the records include \emph{filtering and transformation, reconciliation}, \emph{linking and entity resolution}, as well as \emph{inference through AI models}.
 \item Pagination is limited even on most accessible services, which currently limits the potential for bulk extraction at the scale required by data services. 
 \end{enumerate}
 
-The requirements, recommendations, and proof-of-concept exercise were disseminated at the UK-Ireland Digital Humanities Association Annual Event 2026. [\emph{feedback to be added}]
 
-This work for the federation roadmap implies that improving discoverability across a federated data ecosystem requires a coordinated effort. A commons-style effort with a shared contract and maintenance burden could support federated access and discovery. It aligns incentives — the party that benefits from being discoverable maintains sovereignty  over the means of discovery. A shared, published specification with an agreed-upon, simple description of input, outputs, and the format the data must follow will enable any team — including the data services themselves — to build ways to expose data for their own service without needing to understand the rest of the application. The specification need not be complex; the value lies in its existence and stability.
+\section{Next Steps}
+This work for the federation roadmap has demonstrated the advantages of visual interactive interfaces across a federated data ecosystem for A\&H researchers. 
+
+
+The next steps to develop a minimum viable product require a coordinated effort from the data services and other components of DRI systems. From the data services perspective, a commons-style effort with a shared contract and maintenance burden of sub-components is required to support federated access and discovery. It aligns incentives — the party that benefits from being discoverable maintains sovereignty over the means of discovery. A shared, published specification with an agreed-upon, simple description of input, outputs, and the format the data must follow will enable any team — including the data services themselves — to build ways to expose data for their own service without needing to understand the rest of the application. The specification need not be complex; the value lies in its existence and stability. 
+
+Finally, the development of a workflow manager-style visual interface to support federated access of A\&H data services will require developing support for common workflows in the disciplines as well as understanding the level of compute they require. Compatibility with other interfaces, such as Galaxy, via the Common Workflow Language (CWL), is key to enabling interoperability with other platforms.
+
+% \section{Skills and Training}
+% Along with analysis of skills and training requirements, should include:
+
+% - Specifics of the communities expected to benefit
+% - Details of any extant training in this area, including internationally
+% - Details of any open-source material which might be used to originate training
+
 
 \section{Recommendations}
 Our understanding of the DRI landscape in the Arts and Humanities and the following recommendations are informed by the activities described above: literature review, conducting interviews with data services, trailing approaches for visual interfaces, shaping and delivering the DISKAH fellowship programme with A\&H researchers, and engaging in various outreach and dissemination opportunities at national and international levels. 
 
-All these have been distilled into valuable insights and lessons learned, which, in turn, can inform DRI directions to address the community's requirements for compute- and data-intensive research and practice. The following recommendations are organised according to the four key components of a federated compute stack, serving the requirements for the A\&H communities. These components are illustrated in Figure~\ref{fig:myfigure}, and include: 1) Infrastructure, Platforms \& Tools (\textit{\textbf{IPT}}); 2) Data (\textit{\textbf{DAT}}); 3) Access by Communities \& Skills Capacity (\textit{\textbf{ACC}}); and 4) Policy (\textit{\textbf{POL}}). Each recommendation is provided with a perceived priority from the community, and an owner within the UKRI-DRI ecosystem, including a) the funder, e.g. UKRI and DSIT (\textit{\textbf{funder}}); b) governance and advisory bodies, e.g. DRI advisory board and research counciles (\textit{\textbf{governance bodies}}); c) DRI ecosystem, e.g. Next National Supercomputing Service (NNSS), AI Research Resource (AIRR), and National Compute Resources (NCRs) (\textit{\textbf{DRI-compute services}}) and data services (DRI-data services); and d) the community of A\&H networks (\textit{\textbf{Communities}}).
+All these have been distilled into valuable insights and lessons learned, which, in turn, can inform DRI directions to address the community's requirements for compute- and data-intensive research and practice. 
+
+The following recommendations are organised according to the four key components of a federated compute stack, serving the requirements for the A\&H communities. 
+
+These components are illustrated in Figure~\ref{fig:myfigure}, and include: 1) Infrastructure, Platforms \& Tools (\textit{\textbf{IPT}}); 2) Data (\textit{\textbf{DAT}}); 3) Access by Communities \& Skills Capacity (\textit{\textbf{ACC}}); and 4) Policy (\textit{\textbf{POL}}). 
+
+Each coded recommendation is provided with:
+\begin{itemize} 
+\item A perceived priority from the community: 1) \textit{\textbf{Must Have}}: Essential to the success of federation in the relevant area; \textit{\textbf{Should Have}}: Will significantly impact the success of federation in the relevant area; \textit{\textbf{Could Have}}: Will have a lower but measurable impact the success of federation in the relevant area.
+\item An owner within the UKRI-DRI ecosystem, including a) the funder, e.g. UKRI and DSIT (\textit{\textbf{funder}}); b) governance and advisory bodies, e.g. DRI advisory board and research counciles (\textit{\textbf{governance bodies}}); c) DRI ecosystem, e.g. Next National Supercomputing Service (NNSS), AI Research Resource (AIRR), and National Compute Resources (NCRs) (\textit{\textbf{DRI-compute services}}) and data services (DRI-data services); and d) the community of A\&H networks (\textit{\textbf{Communities}}).
+\item A timescale in the form of an estimate of when within the 5-year Roadmap work would commence, and an estimate of duration. \textit{\textbf{Short-term}}: starts straightaway in Year 1; \textit{\textbf{Medium-term}}: starts in Year 2 or 3; \textit{\textbf{Long-term}}: starts in Year 4 or 5.
+\end{itemize}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/fed.png}
+    \includegraphics[width=0.8\textwidth]{images/fed.png}
     \caption{Diagram of a federated compute stack for the Arts and Humanities}
     \label{fig:myfigure}
 \end{figure}
@@ -433,149 +478,258 @@ All these have been distilled into valuable insights and lessons learned, which,
 
 \newcommand{\owner}[1]{\textit{Action owner: #1}}
 \newcommand{\priority}[1]{\textit{Priority: #1}}
-% \threedigit is already defined in your preamble
+\newcommand{\padthree}[1]{\ifnum\value{#1}<100 0\fi\ifnum\value{#1}<10 0\fi\arabic{#1}}
 
+
+% When preparing your recommendations we would ask that you consider the full 5-year duration of the Roadmap, and endeavour to provide recommendations for the short, medium and long term. Please highlight any dependencies, where applicable. This should take the form of an estimate of when within the 5-year Roadmap work would commence, and an estimate of duration. E.g. Year 2, six months.
+
+% reference details of investigations, surveys, use cases and other evidence found elsewhere in the report or in appendices.
 
 \subsection{Infrastructure, Platforms \& Tools (IPT)}
 \newcounter{riptcounter}
-\renewcommand{\theriptcounter}{R-IPT-\threedigit{riptcounter}}
+\renewcommand{\theriptcounter}{A\&H-IPT-\threedigit{riptcounter}}
 \newcommand{\ript}{\leavevmode\refstepcounter{riptcounter}\theriptcounter}
+\renewcommand{\theriptcounter}{A\&H-IPT-\padthree{riptcounter}}
+
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize\linewidth=\hsize}X}
-\begin{xltabular}{\textwidth}{@{} P{0.6} P{2.4} P{0.5} P{0.5} @{}}
+\begin{xltabular}{\textwidth}{@{} P{0.5} P{2.7} P{0.45} P{0.55} P{0.8} @{}}
 \toprule
-\textbf{ID} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Owner} \\
+\textbf{ID} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Owner} & \textbf{Timeframe} \\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-\ript & Provide standardised, interactive notebook interfaces (e.g.\ Jupyter) and other
-low-barrier front-ends that researchers can use without command-line skills.
-& Must have 
-& DRI-compute services  \\
+\ript\label{ript:int} & Provide interactive, on-demand HPC that allocates compute immediately for
+human-in-the-loop and exploratory work, including interactive notebook interfaces  via shared inference services.
+& Must have & DRI-compute services
+& Short term, 12 months \\
+\addlinespace
+\ript\label{ript:ai} & Provide interactive access to AI models for inference to support large-scale data analysis.
+& Must have & DRI-compute services
+& Short term, 12 months. Depends on \ref{ript:int}.\\
+\addlinespace
+\ript & Provide workflow platforms and interactive sandbox environments for exploratory
+data analysis, built on open workflow standards (e.g.\ CWL or WDL) so that pipelines are
+portable across platforms, enabling researchers to build reproducible, shareable analysis
+pipelines.
+& Must have & DRI-compute services
+& Medium term, 24 months\\
 \addlinespace
 \ript & Provide Trusted Research Environments (TREs) for working with sensitive or
 access-restricted material.
-& Must have 
-& DRI-compute services \\
-\addlinespace
-\ript & Provide workflow platforms (e.g.\ Galaxy) and \emph{data playgrounds} that enable researchers to build
-reproducible, shareable analysis pipelines.
-& Must have 
-& DRI-compute services  \\
+& Must have & DRI-compute services
+& Medium term, 24 months \\
 \addlinespace
 \ript & Provide shared research-cloud infrastructure through open, publicly governed
 science cloud platforms --- such as the European Open Science Cloud (EOSC) --- built on
 open standards and federation in preference to relying solely on proprietary commercial
 cloud services, so that compute, storage, and services can be accessed, shared, and reused
 across institutions, rather than siloed locally or locked into a single vendor.
-& Must have 
-& DRI-compute services  \\
-\addlinespace
-\ript & Provide access to AI models for inference to support large-scale data analysis.
-& Should have & DRI-compute services \\
+& Should have & DRI-compute services
+& Long term, 24 months. \\
 \addlinespace
 \ript & Provide access to agentic coding assistants to support software and workflow development.
-& Should have & DRI-compute services \\
+& Could have & DRI-compute services
+& Short term, 12 months. Depends on \ref{ript:ai}. \\
 \end{xltabular}
 
 \subsection{Data (DAT)}
 \newcounter{datcounter}
-\renewcommand{\thedatcounter}{R-DAT-\threedigit{datcounter}}
+\renewcommand{\thedatcounter}{A\&H-DAT-\threedigit{datcounter}}
 \newcommand{\rdat}{\leavevmode\refstepcounter{datcounter}\thedatcounter}
-\newcolumntype{P}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize\linewidth=\hsize}X}
+\renewcommand{\thedatcounter}{A\&H-DAT-\padthree{datcounter}}
 
-\begin{xltabular}{\textwidth}{@{} P{0.6} P{2.4} P{0.5} P{0.5} @{}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize\linewidth=\hsize}X}
+\begin{xltabular}{\textwidth}{@{} P{0.5} P{2.7} P{0.45} P{0.55} P{0.8} @{}}
 \toprule
-\textbf{ID} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Owner} \\
+\textbf{ID} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Owner} & \textbf{Timeframe} \\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-\rdat & Provide documented and standardised programmatic access so that
-compute environments, analysis platforms, and tools can connect to the service directly, enabling AI workflows, data access, and data sharing without manual data transfer.
-& Must have 
-& DRI-data services  \\
-\addlinespace
-\rdat & Establish a technically oriented coordination board for A\&H data services to
+\rdat\label{rdat:board} & Establish and operate a technically oriented coordination board for A\&H data services to
 ensure consistency across services --- covering metadata integrity, harmonisation of
 ontologies, taxonomies and vocabularies across domain schemas, API access, Persistent
 Identifiers (PIDs), provenance pathways, and citation generation --- so as to improve
 research integrity and the discoverability of data.
-& Must have
-& DRI-data services \\
+& Must have & DRI-data services
+& Short term, 12 months to establish then ongoing  \\
+\addlinespace
+\rdat & Provide documented and standardised programmatic access so that
+compute environments, analysis platforms, and tools can connect to the service directly,
+enabling AI workflows, data access with clear licences and policies, and data sharing
+without manual data transfer.
+& Must have & DRI-data services
+& Short term, Year 2, 12 months. Depends on \ref{rdat:board}.  \\
+\addlinespace
+\rdat & Implement Identity and Access Management (IAM) to enable secure, federated access
+across A\&H data repositories.
+& Must have & DRI-data services
+& Medium term, Year 3, 12 months. Depends on \ref{rdat:board}. \\
+\addlinespace
+\rdat & Protect A\&H data services against automated, large-scale AI scraping/crawling
+(bots), through appropriate technical and policy measures, to safeguard service
+availability and data.
+& Should have & DRI-data services
+& Medium term, Year 3, 12 months then ongoing. Depends on \ref{rdat:board}.  \\
 \addlinespace
 \rdat & Provide distributed, long-term storage with backups across A\&H data services to
 strengthen preservation and disaster- and cybersecurity-resilience.
-& Must have
-& DRI-data services \\
-\addlinespace
-\rdat & Implement Identity and Access Management (IAM) to enable secure, federated access
-across A\&H data repositories. 
-& Must have
-& DRI-data services \\
+& Should have & DRI-data services
+& Medium term, Year 3, 12 months then ongoing. Depends on \ref{rdat:board}.  \\
 \end{xltabular}
 
-%  DRI-enabled research is of critical importance, given the scepticism that persists across the community and the need for accessible and clear training mechanisms. Highlighting DRI use cases with realistic research examples and reusable data, code and workflows can benefit the wider community and generate a ripple effect through the exemplification of reproducible research. 
-% \end{enumerate}
+
+
 \subsection{Communities \& Skills Capacity (Access) (ACC)}
-
 \newcounter{acccounter}
-\renewcommand{\theacccounter}{R-ACC-\threedigit{acccounter}}
+\renewcommand{\theacccounter}{A\&H-ACC-\threedigit{acccounter}}
 \newcommand{\racc}{\leavevmode\refstepcounter{acccounter}\theacccounter}
-\newcolumntype{P}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize\linewidth=\hsize}X}
+\renewcommand{\theacccounter}{A\&H-ACC-\padthree{acccounter}}
 
-\begin{xltabular}{\textwidth}{@{} P{0.6} P{2.4} P{0.5} P{0.5} @{}}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize\linewidth=\hsize}X}
+\begin{xltabular}{\textwidth}{@{} P{0.5} P{2.7} P{0.45} P{0.55} P{0.8} @{}}
 \toprule
-\textbf{ID} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Owner} \\
+\textbf{ID} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Owner} & \textbf{Timeframe} \\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-\racc & Develop a Community Centre of Excellence (CCE) in Arts and Humanities (A\&H) to interface access to Infrastructures, Platforms and Tools.
-& Must have 
-& Community  \\
+\racc & Establish cross-disciplinary coordination with other research communities across
+DRI components to share practice, platforms, tools (e.g.\ codes and workflow managers),
+and standards, and build the interoperability needed for federation between infrastructures.
+& Must have & Community
+& Short term, 12 months to establish then ongoing \\
 \addlinespace
-\racc & Broker access to Digital Research Technical Professionals to support optimising code and workflows, 
-overcoming technical difficulties, and navigating unfamiliar infrastructure. 
-& Must have 
-& Community  \\
+\racc\label{rec:cce} & Develop a Community Centre of Excellence (CCE) in domains related to the Arts and
+Humanities (A\&H) to support access to DRI components, including Infrastructures, Platforms
+and Tools. 
+& Must have & Community
+& Short term, 12 months to establish then ongoing. \\
+\addlinespace
+\racc & Broker access to Digital Research Technical Professionals to support optimising code
+and workflows, overcoming technical difficulties, and navigating unfamiliar infrastructure.
+& Must have & Community
+& Short term, ongoing. Depends on \ref{rec:cce}. \\
 \addlinespace
 \racc & Implement capacity-building and skills development on the use of DRI ecosystems
---- through train-the-trainer approaches, peer-to-peer knowledge exchange, dissemination
-of training, and showcasing of use cases --- to drive uptake.
-& Must have 
-& Community  \\
+--- for instance, through train-the-trainer approaches, summer schools and other hybrid
+training delivery, peer-to-peer knowledge exchange, and showcasing of use cases --- to
+drive uptake.
+& Must have & Community
+& Short term, ongoing. Depends on \ref{rec:cce}. \\
 \addlinespace
-\racc & Develop a coordinated case for participation; on that basis, the funder should commit funding to strategically join the relevant European Research Infrastructure Consortia (ERICs) in A\&H disciplines --- Common Language Resources and Technology Infrastructure (CLARIN), Digital Research Infrastructure for the Arts and Humanities (DARIAH), and European Research Infrastructure for Heritage Science (E-RIHS). & Must have & Community and Funder \\
-& Must have
-& Community and Funder \\
+\racc\label{rec:ssh} & Commission a scoping study for a UK consortium of Social Sciences and Humanities
+(SSH) research infrastructures. The study should map the existing ecosystem of services,
+data, and tools across SSH disciplines, identify key stakeholders and current initiatives,
+assess options for governance and funding, and set out a phased roadmap and business case
+to bring them together, reducing duplication, improving interoperability, and driving
+innovation.
+& Must have & Community
+& \textit{Medium term}, 18 months. \\
+\racc & Develop a coordinated case for participation; on that basis, the funder should
+commit funding to strategically join the relevant European Research Infrastructure  
+Consortia (ERICs) in A\&H disciplines --- Common Language Resources and Technology
+Infrastructure (CLARIN), Digital Research Infrastructure for the Arts and Humanities
+(DARIAH), and European Research Infrastructure for Heritage Science (E-RIHS).
+& Must have & Community and Funder
+& \textit{Medium term}, 12 months for membership Year 4-5. Collaborates with \ref{rec:ssh}. \\
 \addlinespace
-\racc & Commission a scoping study for a UK consortium of Social Sciences and Humanities (SSH) research infrastructures. The study should map the existing ecosystem of services, data, and tools across SSH disciplines, identify the key stakeholders and current initiatives, assess options for governance and funding, and set out a phased roadmap and business case for bringing them together to reduce duplication, improve interoperability, and drive innovation.
-& Should have 
-& Community  \\
 \end{xltabular}
 
-
 \subsection{Policy}
-
 \newcounter{polcounter}
-\renewcommand{\thepolcounter}{R-POL-\threedigit{polcounter}}
+\renewcommand{\thepolcounter}{A\&H-POL-\threedigit{polcounter}}
 \newcommand{\rpol}{\leavevmode\refstepcounter{polcounter}\thepolcounter}
-\newcolumntype{P}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize\linewidth=\hsize}X}
+\renewcommand{\thepolcounter}{A\&H-POL-\padthree{polcounter}}
 
-\begin{xltabular}{\textwidth}{@{} P{0.6} P{2.4} P{0.5} P{0.5} @{}}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize\linewidth=\hsize}X}
+\begin{xltabular}{\textwidth}{@{} P{0.5} P{2.7} P{0.45} P{0.55} P{0.8} @{}}
 \toprule
-\textbf{ID} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Owner} \\
+\textbf{ID} & \textbf{Recommendation} & \textbf{Priority} & \textbf{Owner} & \textbf{Timeframe} \\
 \midrule
 \endhead
 \bottomrule
-\endfoot 
-\rpol & Develop policies and support mechanisms that recognise and accommodate non-linear,
-iterative, and flexible modes of working with data and digital methods, rather than
-assuming linear project lifecycles through flexible funding conditions, reporting timelines, and research-assessment criteria that value iterative and exploratory work.
-& Must have 
-& Governance bodies  \\
+\endfoot
+\rpol & Develop policies and support mechanisms --- through flexible funding conditions,
+reporting timelines, and research-assessment criteria that value iterative and exploratory
+work --- that recognise and accommodate non-linear, iterative, and flexible modes of
+working, rather than assuming linear project lifecycles.
+& Must have & Governance bodies
+& \textit{Medium term}, 24 months. \\
+\addlinespace
+\rpol & Scope the participation and contribution models by which researchers and
+institutions can join and help sustain a federated infrastructure --- for example,
+membership tiers, resource or in-kind contributions, and funding commitments.
+& Must have & Governance bodies
+& \textit{Medium term}, 24 months. \\
+\addlinespace
+\rpol\label{rpol:red} & Scope a tiered readiness framework against which infrastructure components can
+self-assess and signal how far their technical capabilities and policies meet the
+federation's priorities --- i.e.\ defined readiness levels, each with clear criteria.
+& Must have & Community and Funder
+& \textit{Medium term}. \\
+\addlinespace
+\rpol & Provide funding mechanisms to support a coordinated response to common,
+cross-cutting challenges across the A\&H DRI ecosystem that individual components cannot
+resolve on their own.
+& Must have & Governance bodies
+& \textit{Medium term}, depends on \ref{rec:cce}. \\
 \end{xltabular}
+
+\subsection*{Funding workstreams}
+
+\begin{xltabular}{\textwidth}{@{} P{0.25} P{0.85} P{1.15} P{0.65} P{1.1} @{}}
+\toprule
+\textbf{WS} & \textbf{Workstream} & \textbf{Tasks} & \textbf{Recs} & \textbf{Resources required} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+1 & Compute \& hosting (incl.\ TRE compute)
+  & DRI-compute services host A\&H interactive/on-demand HPC, notebook interfaces, AI inference, agentic coding, and the TRE
+  & IPT-001, IPT-002, IPT-004, IPT-006
+  & Existing DRI-compute capacity (CPU/GPU); a service agreement/MoU; onboarding \& integration effort \\
+\addlinespace
+
+2 & Platforms \& code
+  & Develop the data-analysis sandbox and workflow platforms on open workflow standards (CWL/WDL) for portable, reproducible pipelines; support, adapt and integrate code and workflow managers reused from other communities
+  & IPT-003; ACC-001 (code reuse)
+  & Research Software Engineer (RSE)/developer effort; software maintenance and packaging; open-standards/workflow expertise \\
+\addlinespace
+
+3 & Coordination \& governance
+  & Establish and run the technically oriented coordination board; flexible-working policy; participation/contribution models; tiered readiness framework; A\&H data-classification \& access policy
+  & DAT-001, POL-001--004
+  & Coordinator + governance/policy lead (FTE); information-governance/legal expertise; convening costs \\
+\addlinespace
+
+4 & People, skills \& community (CCE)
+  & Establish the CCE; broker RTP access; capacity-building, training and uptake; cross-disciplinary coordination with other communities
+  & ACC-001--004
+  & CCE staff (community manager, trainers); access to a Digital RTP pool; training-delivery budget \\
+\addlinespace
+
+5 & Partnerships \& scoping
+  & Commission the SSH consortium scoping study; develop the ERIC participation case now, with subscriptions as a contingent later ask
+  & ACC-005--006
+  & Scoping-study budget; staff time for case development; \textit{(contingent)} ERIC subscription fees + national funding commitment \\
+\addlinespace
+
+6 & Strengthen the A\&H data services
+  & \textit{Interoperability:} programmatic access, APIs, PIDs, shared vocabularies, identity federation, anti-scraping safeguards. \newline
+    \textit{Storage:} distributed long-term storage with backups/DR
+  & DAT-002--005
+  & Engineering/developer effort across services; PID/DOI registration; metadata \& standards expertise. \newline
+    \textit{Storage:} capacity --- incorporate national service if funded, else new capital + recurrent \\
+\end{xltabular}
+
+
+\section{Acknowledgements}
+We acknowledge the support of the National Federated Compute Services who have funded this work through the Engineering and Physical Sciences Research Council (EPSRC) under Grant No. EP/Z534493/1
 
 \newpage
 \section{Appendix A: Interview questions}
