@@ -406,10 +406,19 @@ In particular, there was a strong note that a level of security and \emph{arms-l
 A proof of concept to improve discoverability across a federated data ecosystem was developed to investigate the suitability of a tool for communities and data service providers to improve how research is indexed, visible, and discoverable (requirements~\ref{itm:dis}, \ref{itm:agg}, and \ref{itm:ont}). For this, a proof-of-concept prototype was prototyped, testing various requirements identified during the interviews, in particular searching across multiple services from a single query and linking discovered data with compute power. Once those core functions were established, the development effort concentrated on adding research value to that baseline, prioritised by the recurrent themes from our interviews with the data services and by their idiosyncrasies. It further prioritised partly inferred usability concerns drawn from the project team's experience running workshops.
 
 \subsection{Technical Configuration}
-The development of the prototype was an iterative, attritional process of discovery, building out organically from a small set of core functions. It deploys a web-based interactive visual interface similar to a workflow manager (see Figure~\ref{fig:poc}). The interfaces provides a set of nodes, including \emph{data} nodes for each data service, including those within the A\&H infrastructure and other national and international repositories.  
-At its simplest, the interface provides the ability to take a single argument — a text string or an integer — via a node interface that can be passed consistently to a range of providers, satisfying the minimal requirements for a search query (string), a result limit (numeric), and an API key, where required (string). Thereafter, various workflows can be developed to perform filter, transform, extraction and enrichment tasks via \emph{data analytic} nodes. IIIF annotation is made available to support discoverability and analysis of visual media. \emph{Visualisation} nodes are made available to generate graphs, maps, and other visualisation modalities. 
+The development of the prototype was an iterative, attritional process of discovery, building out organically from a small set of core functions. 
 
-The interfaces also offer support via Large Language Models for both developing the workflow and interacting with the data. For this, a pre-configured set of models was made available. To close the loop from discovery to reference, the proof of concept explored the use of a dedicated citation component which can assemble a formatted reference list directly from a federated result set. Workflows can be saved, exported and loaded using a JSON format.
+The prototype is built in React (a widely-used library for building interactive browser interfaces) and uses a canvas component called xyflow to render the node editor — the drag-and-drop board where researchers assemble their pipelines. 
+
+The whole frontend is compiled and served by Vite during development, which also doubles as a local web server that keeps the page in sync with any code changes in real time. When deployed for wider use, an Express server (a standard Node.js web server) takes over from Vite and serves the application on port 3001 inside a Docker container, making it straightforward to run on any machine or cloud host. Both Vite and Express share a proxy configuration file (`server/proxies.mjs`), which is what defines all the ``go-between'' rules — when the browser asks for data from, say, ARIADNE or the V\&A collection, the request is routed through this proxy layer rather than going directly, sidestepping the browser CORS restrictions that would otherwise block it. For websites that are particularly difficult to access automatically (those protected by Cloudflare or similar bot-detection systems), the server also runs a headless browser called Puppeteer, which can load those pages in a hidden Chrome instance and hand the result back to the application. 
+
+AI inference is handled by KCL's own API using LiteLLM, with an OpenAI-compatible endpoint running models named arc:nano through arc:apex, hosted by King's College London. 
+
+All of these services are accessed through the same Express proxy, so from the browser's perspective they all look like part of the same application. 
+
+
+\subsection{User interface}
+The prototype deploys a web-based interactive visual interface similar to a workflow manager (see Figure~\ref{fig:poc}). There is no separate database or user account system. Researchers open it like any other website and are presented with a visual canvas where they can drag, connect, and configure ``nodes'', each of which represents a step in a data pipeline: fetching records from an archive, filtering or transforming them, running an AI analysis, and finally viewing or exporting the results. Nodes include \emph{data} nodes for each data service, including those within the A\&H infrastructure and other national and international repositories.  
 
 
 \begin{figure}[h]
@@ -419,32 +428,47 @@ The interfaces also offer support via Large Language Models for both developing 
     \label{fig:poc}
 \end{figure}
 
+At its simplest, the interface provides the ability to take a single argument — a text string or an integer — via a node interface that can be passed consistently to a range of providers, satisfying the minimal requirements for a search query (string), a result limit (numeric), and an API key, where required (string). Thereafter, various workflows can be developed to perform filter, transform, extraction and enrichment tasks via \emph{data analytic} nodes. IIIF annotation is made available to support discoverability and analysis of visual media. \emph{Visualisation} nodes are made available to generate graphs, maps, and other visualisation modalities. 
+
+The interfaces also offer support via Large Language Models for both developing the workflow and interacting with the data. For this, a pre-configured set of models was made available. To close the loop from discovery to reference, the proof of concept explored the use of a dedicated citation component which can assemble a formatted reference list directly from a federated result set. Workflows can be saved, exported and loaded using a JSON format.
+
+
+
 \subsection{Assessment of the prototype}
 The proof-of-concept was presented at the UK-Ireland Digital Humanities Association Annual Event 2026 in Southampton to an audience of about 25 A\&H researchers. The session included a presentation, a demo and tool testing, and a group activity to collect feedback via Padlet. 
 
 The prototype and its visual nature were very well received: researchers particularly valued its federated, reproducible search and the way it made the linking of infrastructures visible through a simple interface. Researchers also identified areas for development, highlighting the need for support for additional sources such as Wikibase instances, other repositories and triplestores, clarity on the licenses and policies of use, standardised workflow descriptions, and greater transparency into the underlying AI models.
 
-The development evidenced that from a user perspective, the visual and interactive nature of federated platforms and tools is key to adoption. Moreover, from a development perspective, there are various lessons learned which will facilitate the production of a minimum viable product:
-\begin{enumerate}
+The development evidenced that from a user perspective, the visual and interactive nature of federated platforms and tools is key to adoption. Moreover, from a development perspective, there are various lessons learned which will facilitate the production of a minimum viable product.
+\begin{itemize}
 \item Building on available expertise within the data services, single sign-on across the A\&H landscape represents the most concrete requirement the roadmap can address. 
 \item Standardising API access configured for direct access from external applications is required. Standardised metadata is key for federation. APIs and Search parameters vary across services. Yet, given the discipline-specific nature of the metadata, a fully federated search across all data services might not always make sense.
 \item Sanctioned mechanisms (e.g., known IP ranges, attested clients, or codified request rate-limit norms) for programmatic access can be the means by which research consumers are distinguished from harvesting bots.
 \item Identifiers below the dataset level remain inconsistent. Without item-level identifiers minted at source, every application has to solve the disambiguation problem independently, rather than relying on a single identifier that solves it once for everyone.
 \item Beyond inspection and harmonisation, operations that add research value to the records include \emph{filtering and transformation, reconciliation}, \emph{linking and entity resolution}, as well as \emph{inference through AI models}.
 \item Pagination is limited even on most accessible services, which currently limits the potential for bulk extraction at the scale required by data services. 
-\end{enumerate}
+\end{itemize}
 
 
 \section{Next Steps}
 This work for the federation roadmap has demonstrated the advantages of visual interactive interfaces across a federated data ecosystem for A\&H researchers. 
 
+The platform is readily deployable on minimal hardware in its current form. However, functionality has been added incrementally to test various use cases and would benefit from refactoring. The data search API nodes have been engineered in idiosyncratic ways to negotiate with data service endpoints which are either not optimised, not readily available, or actively discourage or defend against automated access.
 
-The next steps to develop a minimum viable product require a coordinated effort from the data services and other components of DRI systems. From the data services perspective, a commons-style effort with a shared contract and maintenance burden of sub-components is required to support federated access and discovery. It aligns incentives — the party that benefits from being discoverable maintains sovereignty over the means of discovery. A shared, published specification with an agreed-upon, simple description of input, outputs, and the format the data must follow will enable any team — including the data services themselves — to build ways to expose data for their own service without needing to understand the rest of the application. The specification need not be complex; the value lies in its existence and stability. 
+The next steps to develop a minimum viable product require a coordinated effort from the data services and other components of DRI systems. Currently, the unified schema constructed to bring diverse sources together is skewed towards archaeological and biodiversity records, due to early development choices. 
+
+The Data Service providers would ideally own the maintenance of their own nodes, ensuring alignment with a unified record schema (e.g. comply with schema.org vocabularies). A shared, published specification with an agreed-upon, simple description of input, outputs, and the format the data must follow will enable any team to build ways to expose data for their own service without needing to understand the rest of the application.
+
+Requests originating from the node platform host should be either whitelisted or authentication methods embedded into the data service nodes as an extra layer of security.
+
+In addition, all existing node functionality should be reviewed and categorised according to the TaDiRAH research activity vocabulary. Whilst node functions represent generalised research processes, additional specialised or task-targeted nodes should be community contributed, documented and developed according to agreed I/O standards.
+
+AI inference can be readily set up within the same host container (given sufficient resources) via Ollama, or to any other OpenAI compatible endpoint. Institutional inference platforms could be configured in dedicated nodes. At present, inference occurs on a discrete per-record or aggregate-result-set basis. The platform could benefit from an additional AI enhanced approach whereby research context is accumulated along the entire length of the workflow (including filtering, transformations, reconciliations, and articulated research goals), thereby providing frontier-level models with an exhaustive overview of the research steps and goals. Currently no Usage Tracking or Accessibility measures are implemented.
 
 Finally, the development of a workflow manager-style visual interface to support federated access of A\&H data services will require developing support for common workflows in the disciplines as well as understanding the level of compute they require. Compatibility with other interfaces, such as Galaxy, via the Common Workflow Language (CWL), is key to enabling interoperability with other platforms.
 
 \section{Skills and Training}
-Along with analysis of skills and training requirements, should include:
+Along with analysis of skills and training requirements, should include.
 
 - Specifics of the communities expected to benefit
 - Details of any extant training in this area, including internationally
@@ -478,7 +502,7 @@ Each coded recommendation is provided with:
 
 \newcommand{\owner}[1]{\textit{Action owner: #1}}
 \newcommand{\priority}[1]{\textit{Priority: #1}}
-\newcommand{\padthree}[1]{\ifnum\value{#1}<100 0\fi\ifnum\value{#1}<10 0\fi\arabic{#1}}
+\newcommand{\padthree}[1]{\ifnum\value{#1}<10 0\fi\ifnum\value{#1}<1 0\fi\arabic{#1}}
 
 
 % When preparing your recommendations we would ask that you consider the full 5-year duration of the Roadmap, and endeavour to provide recommendations for the short, medium and long term. Please highlight any dependencies, where applicable. This should take the form of an estimate of when within the 5-year Roadmap work would commence, and an estimate of duration. E.g. Year 2, six months.
@@ -499,38 +523,42 @@ Each coded recommendation is provided with:
 \endhead
 \bottomrule
 \endfoot
-\ript\label{ript:int} & Provide interactive, on-demand HPC that allocates compute immediately for
-human-in-the-loop and exploratory work, including interactive notebook interfaces  via shared inference services.
+\ript\label{ript:ai} & Provide interactive access to shared AI models for inference to support large-scale data analysis.
 & Must have & DRI-compute services
-& Short term, 12 months \\
+& Short term, 12 months.\\
 \addlinespace
-\ript\label{ript:ai} & Provide interactive access to AI models for inference to support large-scale data analysis.
-& Must have & DRI-compute services
-& Short term, 12 months. Depends on \ref{ript:int}.\\
-\addlinespace
-\ript & Provide workflow platforms and interactive sandbox environments for exploratory
-data analysis, built on open workflow standards (e.g.\ CWL or WDL) so that pipelines are
-portable across platforms, enabling researchers to build reproducible, shareable analysis
-pipelines.
-& Must have & DRI-compute services
-& Medium term, 24 months\\
-\addlinespace
-\ript & Provide Trusted Research Environments (TREs) for working with sensitive or
-access-restricted material.
-& Must have & DRI-compute services
-& Medium term, 24 months \\
-\addlinespace
-\ript & Provide shared research-cloud infrastructure through open, publicly governed
-science cloud platforms --- such as the European Open Science Cloud (EOSC) --- built on
-open standards and federation in preference to relying solely on proprietary commercial
-cloud services, so that compute, storage, and services can be accessed, shared, and reused
-across institutions, rather than siloed locally or locked into a single vendor.
-& Should have & DRI-compute services
-& Long term, 24 months. \\
+\ript\label{ript:compute} & Diversify the compute environments and modes of access
+available to A\&H researchers spanning interactive, on-demand HPC (with notebook
+interfaces); Trusted Research Environments (TREs) for sensitive or access-restricted material; and federated research-cloud infrastructure.
+& Must have & DRI-compute services and Community
+& Phased over 5 years. \\
 \addlinespace
 \ript & Provide access to agentic coding assistants to support software and workflow development.
 & Could have & DRI-compute services
-& Short term, 12 months. Depends on \ref{ript:ai}. \\
+& Short term, 12 months. \\
+% & Must have & DRI-compute services 
+% & Short term, 12 months \\
+% \addlinespace
+% \ript & Provide workflow platforms and interactive sandbox environments for exploratory
+% data analysis, built on open workflow standards (e.g.\ CWL or WDL) so that pipelines are
+% portable across platforms, enabling researchers to build reproducible, shareable analysis
+% pipelines.
+% & Must have & DRI-compute services and Community
+% & Medium term, 24 months\\
+% \addlinespace
+% \ript & Provide Trusted Research Environments (TREs) for working with sensitive or
+% access-restricted material.
+% & Must have & DRI-compute services and Community
+% & Medium term, 24 months \\
+% \addlinespace
+% \ript & Provide shared research-cloud infrastructure through open, publicly governed
+% science cloud platforms --- such as the European Open Science Cloud (EOSC) --- built on
+% open standards and federation in preference to relying solely on proprietary commercial
+% cloud services, so that compute, storage, and services can be accessed, shared, and reused
+% across institutions, rather than siloed locally or locked into a single vendor.
+% & Should have & DRI-compute services
+% & Long term, 24 months. \\
+% \addlinespace
 \end{xltabular}
 
 \subsection{Data (DAT)}
@@ -549,35 +577,28 @@ across institutions, rather than siloed locally or locked into a single vendor.
 \bottomrule
 \endfoot
 \rdat\label{rdat:board} & Establish and operate a technically oriented coordination board for A\&H data services to
-ensure consistency across services --- covering metadata integrity, harmonisation of
-ontologies, taxonomies and vocabularies across domain schemas, API access, Persistent
-Identifiers (PIDs), provenance pathways, and citation generation --- so as to improve
-research integrity and the discoverability of data.
-& Must have & DRI-data services
+ensure consistency across services in a federated environment, covering metadata integrity, programmatic access, interoperability, as well as sustaining service availability (i.e. protecting A\&H data services against automated, large-scale AI scraping/crawling).
+& Must have & DRI-data services and Funder
 & Short term, 12 months to establish then ongoing  \\
 \addlinespace
-\rdat & Provide documented and standardised programmatic access so that
-compute environments, analysis platforms, and tools can connect to the service directly,
+\rdat & Implement workflow platforms and interactive sandbox environments for federated exploratory data analysis, built on open workflow standards (e.g.\ CWL or WDL) alongside
+data access via programmatic/API or scheduled exports (e.g. CSV push) so that compute environments, analysis platforms, and tools can connect to the service directly,
 enabling AI workflows, data access with clear licences and policies, and data sharing
 without manual data transfer.
 & Must have & DRI-data services
 & Short term, Year 2, 12 months. Depends on \ref{rdat:board}.  \\
 \addlinespace
-\rdat & Implement Identity and Access Management (IAM) to enable secure, federated access
+\rdat & Support implementation of Identity and Access Management (IAM) to enable secure, federated access
 across A\&H data repositories.
 & Must have & DRI-data services
 & Medium term, Year 3, 12 months. Depends on \ref{rdat:board}. \\
 \addlinespace
-\rdat & Protect A\&H data services against automated, large-scale AI scraping/crawling
-(bots), through appropriate technical and policy measures, to safeguard service
-availability and data.
-& Should have & DRI-data services
-& Medium term, Year 3, 12 months then ongoing. Depends on \ref{rdat:board}.  \\
-\addlinespace
-\rdat & Provide distributed, long-term storage with backups across A\&H data services to
-strengthen preservation and disaster- and cybersecurity-resilience.
-& Should have & DRI-data services
-& Medium term, Year 3, 12 months then ongoing. Depends on \ref{rdat:board}.  \\
+% \rdat & Coordinate response to sustaining service
+% availability through appropriate technical and policy measures for protecting A\&H data services against automated, large-scale AI scraping/crawling
+% (bots), as well as through distributed, long-term storage with backups across A\&H data services to
+% strengthen disaster and cybersecurity-resilience.
+% & Should have & DRI-data services
+% & Medium term, Year 3, 12 months then ongoing. Depends on \ref{rdat:board}.  \\
 \end{xltabular}
 
 
@@ -597,45 +618,38 @@ strengthen preservation and disaster- and cybersecurity-resilience.
 \endhead
 \bottomrule
 \endfoot
-\racc & Establish cross-disciplinary coordination with other research communities across
-DRI components to share practice, platforms, tools (e.g.\ codes and workflow managers),
-and standards, and build the interoperability needed for federation between infrastructures.
+\racc\label{rec:cce}  & 
+Develop a community-led approach to widen A\&H users' participation in a federated
+digital research infrastructure, including cross-disciplinary coordination with other
+research communities to share practice, platforms, tools (e.g.\ codes and workflow
+managers), and standards for interoperability.
 & Must have & Community
 & Short term, 12 months to establish then ongoing \\
-\addlinespace
-\racc\label{rec:cce} & Develop a Community Centre of Excellence (CCE) in domains related to the Arts and
-Humanities (A\&H) to support access to DRI components, including Infrastructures, Platforms
-and Tools. 
-& Must have & Community
-& Short term, 12 months to establish then ongoing. \\
 \addlinespace
 \racc & Broker access to Digital Research Technical Professionals to support optimising code
 and workflows, overcoming technical difficulties, and navigating unfamiliar infrastructure.
 & Must have & Community
 & Short term, ongoing. Depends on \ref{rec:cce}. \\
 \addlinespace
-\racc & Implement capacity-building and skills development on the use of DRI ecosystems
---- for instance, through train-the-trainer approaches, summer schools and other hybrid
-training delivery, peer-to-peer knowledge exchange, and showcasing of use cases --- to
+\racc & Implement capacity-building and skills
+, for instance, through train-the-trainer approaches, summer schools and other hybrid training delivery
+% training delivery, peer-to-peer knowledge exchange, and showcasing of use cases --- 
+to
 drive uptake.
 & Must have & Community
 & Short term, ongoing. Depends on \ref{rec:cce}. \\
 \addlinespace
-\racc\label{rec:ssh} & Commission a scoping study for a UK consortium of Social Sciences and Humanities
-(SSH) research infrastructures. The study should map the existing ecosystem of services,
-data, and tools across SSH disciplines, identify key stakeholders and current initiatives,
-assess options for governance and funding, and set out a phased roadmap and business case
-to bring them together, reducing duplication, improving interoperability, and driving
-innovation.
-& Must have & Community
-& \textit{Medium term}, 18 months. \\
-\racc & Develop a coordinated case for participation; on that basis, the funder should
-commit funding to strategically join the relevant European Research Infrastructure  
-Consortia (ERICs) in A\&H disciplines --- Common Language Resources and Technology
-Infrastructure (CLARIN), Digital Research Infrastructure for the Arts and Humanities
-(DARIAH), and European Research Infrastructure for Heritage Science (E-RIHS).
-& Must have & Community and Funder
-& \textit{Medium term}, 12 months for membership Year 4-5. Collaborates with \ref{rec:ssh}. \\
+\racc\label{rec:ssh} &  Develop the coordinated case for A\&H participation in wider
+research-infrastructure networks, both domestic and European: commission a scoping study
+for a UK consortium of Social Sciences and Humanities (SSH) research infrastructures
+% mapping the existing ecosystem of services, data, and tools, identifying key stakeholders
+% and initiatives, assessing governance and funding options, and setting out a phased roadmap
+% and business case --- 
+and, on that basis, develop the case for strategically joining the
+relevant European Research Infrastructure Consortia (ERICs) in A\&H disciplines (CLARIN,
+DARIAH, and E-RIHS), with the funder committing membership funding.
+& Should have & Community and Funder
+& \textit{Medium term}, 12 months for membership Year 4-5. \\
 \addlinespace
 \end{xltabular}
 
@@ -653,79 +667,34 @@ Infrastructure (CLARIN), Digital Research Infrastructure for the Arts and Humani
 \endhead
 \bottomrule
 \endfoot
-\rpol & Develop policies and support mechanisms --- through flexible funding conditions,
-reporting timelines, and research-assessment criteria that value iterative and exploratory
-work --- that recognise and accommodate non-linear, iterative, and flexible modes of
-working, rather than assuming linear project lifecycles.
-& Must have & Governance bodies
-& \textit{Medium term}, 24 months. \\
-\addlinespace
 \rpol & Scope the participation and contribution models by which researchers and
-institutions can join and help sustain a federated infrastructure --- for example,
+institutions can join and help sustain a federated infrastructure; for example,
 membership tiers, resource or in-kind contributions, and funding commitments.
-& Must have & Governance bodies
+& Should have & Governance bodies
 & \textit{Medium term}, 24 months. \\
-\addlinespace
-\rpol\label{rpol:red} & Scope a tiered readiness framework against which infrastructure components can
-self-assess and signal how far their technical capabilities and policies meet the
-federation's priorities --- i.e.\ defined readiness levels, each with clear criteria.
-& Must have & Community and Funder
-& \textit{Medium term}. \\
 \addlinespace
 \rpol & Provide funding mechanisms to support a coordinated response to common,
 cross-cutting challenges across the A\&H DRI ecosystem that individual components cannot
 resolve on their own.
-& Must have & Governance bodies
+& Should have & Governance bodies
 & \textit{Medium term}, depends on \ref{rec:cce}. \\
+\rpol & Develop policies and support mechanisms 
+% --- through flexible funding conditions,
+% reporting timelines, and research-assessment criteria that value iterative and exploratory
+% work --- 
+that recognise and accommodate non-linear, iterative, and flexible modes of
+working, rather than assuming linear project lifecycles.
+& Should have & Governance bodies
+& \textit{Medium term}, 24 months. \\
+\addlinespace
+% \rpol\label{rpol:red} & Scope a tiered readiness framework against which infrastructure components can
+% self-assess and signal how far their technical capabilities and policies meet the
+% federation's priorities, i.e.\ defined readiness levels, each with clear criteria
+% & Must have & Community and Funder
+% & \textit{Medium term}. \\
+% \addlinespace
 \end{xltabular}
 
-\subsection*{Funding workstreams}
-
-\begin{xltabular}{\textwidth}{@{} P{0.25} P{0.85} P{1.15} P{0.65} P{1.1} @{}}
-\toprule
-\textbf{WS} & \textbf{Workstream} & \textbf{Tasks} & \textbf{Recs} & \textbf{Resources required} \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-
-1 & Compute \& hosting (incl.\ TRE compute)
-  & DRI-compute services host A\&H interactive/on-demand HPC, notebook interfaces, AI inference, agentic coding, and the TRE
-  & IPT-001, IPT-002, IPT-004, IPT-006
-  & Existing DRI-compute capacity (CPU/GPU); a service agreement/MoU; onboarding \& integration effort \\
-\addlinespace
-
-2 & Platforms \& code
-  & Develop the data-analysis sandbox and workflow platforms on open workflow standards (CWL/WDL) for portable, reproducible pipelines; support, adapt and integrate code and workflow managers reused from other communities
-  & IPT-003; ACC-001 (code reuse)
-  & Research Software Engineer (RSE)/developer effort; software maintenance and packaging; open-standards/workflow expertise \\
-\addlinespace
-
-3 & Coordination \& governance
-  & Establish and run the technically oriented coordination board; flexible-working policy; participation/contribution models; tiered readiness framework; A\&H data-classification \& access policy
-  & DAT-001, POL-001--004
-  & Coordinator + governance/policy lead (FTE); information-governance/legal expertise; convening costs \\
-\addlinespace
-
-4 & People, skills \& community (CCE)
-  & Establish the CCE; broker RTP access; capacity-building, training and uptake; cross-disciplinary coordination with other communities
-  & ACC-001--004
-  & CCE staff (community manager, trainers); access to a Digital RTP pool; training-delivery budget \\
-\addlinespace
-
-5 & Partnerships \& scoping
-  & Commission the SSH consortium scoping study; develop the ERIC participation case now, with subscriptions as a contingent later ask
-  & ACC-005--006
-  & Scoping-study budget; staff time for case development; \textit{(contingent)} ERIC subscription fees + national funding commitment \\
-\addlinespace
-
-6 & Strengthen the A\&H data services
-  & \textit{Interoperability:} programmatic access, APIs, PIDs, shared vocabularies, identity federation, anti-scraping safeguards. \newline
-    \textit{Storage:} distributed long-term storage with backups/DR
-  & DAT-002--005
-  & Engineering/developer effort across services; PID/DOI registration; metadata \& standards expertise. \newline
-    \textit{Storage:} capacity --- incorporate national service if funded, else new capital + recurrent \\
-\end{xltabular}
 
 
 \section{Acknowledgements}
